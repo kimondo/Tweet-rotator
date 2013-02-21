@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Tweet rotator</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body onload="parent.alertsize(document.body.scrollHeight);">
+
+			
+<div id="container">
+  <div id="webtivistform">			
+		
+		<h1>Tweet-rotator</h1>
+		
+		<p><input type="button" value="Reload Page" onClick="window.location.href=window.location.href"> to pick a tweet at random from the following list:</p>
+		<div id="result"></div></p>	
+	
+
+		<!-- twitter button -->
+		<!-- data-text must be custom tweet for it to work -->
+		
+		   <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+		   
+		   <p>
+		   
+		   <h3>custom_tweet_text
+		   
+		      <a href="http://twitter.com/share" class="twitter-share-button"
+		         data-via="kimondo"
+		         data-text="custom_tweet"
+		          data-url="http://kimondo.co.uk/tweet-rotator"	  
+		          data-size="large">Tweet</a>
+		          
+		     	
+			</h3>
+			<!-- this needs to be after the twitter button -->
+		
+		<script type="text/javascript">
+		
+		window.onload = function (tweet) {
+			var loader, tweets;
+			
+			// comma separated list of suggested tweets
+			
+			tweets = "check out the tweet rotator, here's something interesting, visit this useful twitter tool, couldn't think of anything else to tweet, tweet tweet, I wandered lonely as a cloud, the quick brown fox, jumped over the lazy hen, loren ipsum etc";
+			
+			tweets = tweets.replace(', ', ',');
+			tweets = tweets.split(',');
+
+				var tweets;
+				
+				tweet = Math.floor(Math.random() * tweets.length);
+				document.getElementById('result').innerHTML = tweets;
+				
+			// these have to be in the order they appear in the document - custom_tweet is the text it replaces
+				
+			document.body.innerHTML = document.body.innerHTML.replace('custom_tweet_text', tweets[tweet]);	
+			document.body.innerHTML = document.body.innerHTML.replace('custom_tweet', tweets[tweet]);
+			
+
+
+		};
+		
+		</script>
+		
+		
+       		  <!-- twitter button ends -->   
+		
+
+	</div>
+</div>
+	
+</body>
+</html>
